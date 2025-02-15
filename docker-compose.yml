@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   mysql:
@@ -15,13 +15,13 @@ services:
       - mysql-data:/var/lib/mysql
 
   spring-app:
-    build: ..
+    build: docker
     container_name: spring-app-container
     ports:
       - "8080:8080"
     environment:
       # This will work for both Docker and local development
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/testdb
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/exam_portal
       SPRING_DATASOURCE_USERNAME: testuser
       SPRING_DATASOURCE_PASSWORD: testpassword
     depends_on:
